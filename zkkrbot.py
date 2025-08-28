@@ -4,12 +4,12 @@ import textwrap
 import os
 
 # استخدام Secrets من GitHub Actions
-TOKEN = os.environ.get("Telegram_Token")
+TOKEN = os.environ.get("TELEGRAM_TOKEN")
 # قائمة الـ Chat IDs للجروبات المختلفة
 chat_ids = [
-    os.environ.get("Chat_ID_1"),
-    os.environ.get("Chat_ID_2"),
-    os.environ.get("Chat_ID_3")
+    os.environ.get("CHAT_ID_1"),
+    os.environ.get("CHAT_ID_2"),
+    os.environ.get("CHAT_ID_3")
     # ممكن تضيف Chat_ID_X جديد هنا لأي جروب إضافي
 ]
 URL = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
@@ -114,4 +114,5 @@ if __name__ == "__main__":
         send_long_message(message)
     else:
         print("مش وقت الرسالة حالياً")
+
 
