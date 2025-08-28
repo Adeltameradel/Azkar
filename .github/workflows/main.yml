@@ -1,28 +1,26 @@
 name: Azkar Bot
 
 on:
+  workflow_dispatch:   # ده يخليكي تقدري تشغلي الوركفلو يدويًا
   schedule:
-    - cron: '0 5 * * *'   # الساعة 7 صباحًا بتوقيت مصر
-    - cron: '0 11 * * *'  # الساعة 1 ظهرًا بتوقيت مصر
-    - cron: '0 18 * * *'  # الساعة 8 مساءً بتوقيت مصر
+    - cron: '0 5 * * *'
+    - cron: '0 11 * * *'
+    - cron: '0 20 * * *'
+
 jobs:
   run_bot:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests
-
       - name: Run Azkar Bot
         run: python zakkrbot.py
         env:
@@ -30,4 +28,3 @@ jobs:
           Chat_ID_1: ${{ secrets.CHAT_ID_1 }}
           Chat_ID_2: ${{ secrets.CHAT_ID_2 }}
           Chat_ID_3: ${{ secrets.CHAT_ID_3 }}
-          # ممكن تضيف أي عدد من Chat_ID_X هنا
