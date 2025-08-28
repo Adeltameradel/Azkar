@@ -27,8 +27,8 @@ jobs:
       - name: Run Azkar Bot
         run: python zakkrbot.py
         env:
-          Telegram_Token: ${{ secrets.Telegram_Token }}
-          Chat_ID_1: ${{ secrets.Chat_ID_1 }}
-          Chat_ID_2: ${{ secrets.Chat_ID_2 }}
-          Chat_ID_3: ${{ secrets.Chat_ID_3 }}
+          Telegram_Token: ${{ secrets.TELEGRAM_TOKEN }}
+          Chat_ID_1: ${{ secrets.CHAT_ID_1 }}
+          Chat_ID_2: ${{ secrets.CHAT_ID_2 }}
+          Chat_ID_3: ${{ secrets.CHAT_ID_3 }}
           # ممكن تضيف أي عدد من Chat_ID_X هنا
