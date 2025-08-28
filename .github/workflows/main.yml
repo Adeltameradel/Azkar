@@ -2,24 +2,25 @@ name: Azkar Bot
 
 on:
   schedule:
-    - cron: '0 5 * * *'   # 7 صباحًا بتوقيت مصر
-    - cron: '0 11 * * *'  # 1 ظهرًا بتوقيت مصر
-    - cron: '0 17 * * *'  # 7 مساءً بتوقيت مصر
+    - cron: '0 5 * * *'   # 7 صباحًا مصر
+    - cron: '0 11 * * *'  # 1 ظهر مصر
+    - cron: '0 17 * * *'  # 7 مساء مصر
 
 jobs:
   run_bot:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      - name: Install dependencies
-        run: |
+      - run: |
           python -m pip install --upgrade pip
           pip install python-telegram-bot
+
+      - run: python zakkrbot.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
