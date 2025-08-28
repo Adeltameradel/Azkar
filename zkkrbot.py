@@ -109,10 +109,11 @@ if __name__ == "__main__":
         message = azkar_sabah
     elif hour == 13:     # وقت الحديث
         message = hadith
-    elif hour == 19:     # وقت أذكار المساء
+    elif hour == 20:     # وقت أذكار المساء
         message = azkar_masaa
 
     if message:
         send_long_message(message)
     else:
         print("مش وقت الرسالة حالياً")
+
