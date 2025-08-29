@@ -3,10 +3,9 @@ name: Azkar Bot
 on:
   workflow_dispatch:  # تشغيل يدوي
   schedule:
-    - cron: '0 5 * * *'    # 7 صباحًا بتوقيت مصر - أذكار الصباح
-    - cron: '0 14 * * *'   # 4 عصرًا بتوقيت مصر - حديث
-    - cron: '45 14 * * *'  # 4:45 عصرًا بتوقيت مصر - حديث
-    - cron: '0 18 * * *'   # 8 مساءً بتوقيت مصر - أذكار المساء
+    - cron: '0 5 * * *'     # 7 صباحًا بتوقيت مصر - أذكار الصباح
+    - cron: '45 13 * * *'   # 3:45 عصرًا بتوقيت مصر - حديث
+    - cron: '0 20 * * *'    # 10 مساءً بتوقيت مصر - أذكار المساء
 
 jobs:
   run_bot:
@@ -30,5 +29,5 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID_1: ${{ secrets.CHAT_ID_1 }}
-          CHAT_ID_2: ${{ secrets/CHAT_ID_2 }}
-          CHAT_ID_3: ${{ secrets/CHAT_ID_3 }}
+          CHAT_ID_2: ${{ secrets.CHAT_ID_2 }}
+          CHAT_ID_3: ${{ secrets.CHAT_ID_3 }}
