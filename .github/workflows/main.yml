@@ -1,13 +1,12 @@
 name: Azkar Bot
 
 on:
-  workflow_dispatch:  # للتشغيل اليدوي
+  workflow_dispatch:  # تشغيل يدوي
   schedule:
-    - cron: '15 13 * * *'   # يبعت الساعة 13:15 بتوقيت UTC
-    - cron: '35 13 * * *'   # يبعت الساعة 13:35 بتوقيت UTC
-    - cron: '0 5 * * *'     # 7 صباحاً بتوقيت مصر (أذكار الصباح)
-    - cron: '0 11 * * *'    # 1 ظهراً بتوقيت مصر (حديث)
-    - cron: '0 18 * * *'    # 8 مساءً بتوقيت مصر (أذكار المساء)
+    # خلي بالك: التوقيت هنا UTC
+    - cron: '0 5 * * *'   # 7 صباحًا بتوقيت مصر
+    - cron: '0 11 * * *'  # 1 ظهرًا بتوقيت مصر
+    - cron: '0 18 * * *'  # 8 مساءً بتوقيت مصر
 
 jobs:
   run_bot:
@@ -27,4 +26,9 @@ jobs:
           pip install requests pytz
 
       - name: Run Azkar Bot
-        run
+        run: python zkkrbot.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CHAT_ID_1: ${{ secrets.CHAT_ID_1 }}
+          CHAT_ID_2: ${{ secrets.CHAT_ID_2 }}
+          CHAT_ID_3: ${{ secrets.CHAT_ID_3 }}
